@@ -3,7 +3,6 @@ package admin.dao;
 import org.apache.ibatis.session.SqlSession;
 
 import admin.dto.AdminDTO;
-import user.dto.AuthInfo;
 
 public class AdminDaoImp implements AdminDAO{
 
@@ -14,12 +13,12 @@ public class AdminDaoImp implements AdminDAO{
 	}
 
 	@Override
-	public int addAdminProcess(AdminDTO dto) {
+	public int addAdmin(AdminDTO dto) {
 		return sqlSession.insert("admin.addAdmin", dto);
 	}
 
 	@Override
-	public void updateAdminProcess(AdminDTO dto) {
+	public void updateAdmin(AdminDTO dto) {
 		// TODO Auto-generated method stub
 		
 	}
