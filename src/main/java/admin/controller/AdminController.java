@@ -1,17 +1,31 @@
 package admin.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import admin.dao.AdminDAO;
+import admin.service.AdminService;
 
+//	http://localhost:8090/myapp/admin/adminSignup.do
+
+@Controller
 public class AdminController {
-	private AdminDAO adminDao;
 	
-	@RequestMapping(value="adminSignup.do", method=RequestMethod.GET)
-	public ModelAndView addMember(ModelAndView mav) {
-		mav.setViewName("admin/signup");
+	private AdminService adminService;
+	
+	public AdminController() {
+
+	}
+	
+	public void setAdminService(AdminService adminService) {
+		this.adminService = adminService;
+	}
+	
+	//관리자 회원가입 폼
+	@RequestMapping(value="/admin/adminSignup.do", method=RequestMethod.GET)
+	public ModelAndView addAdmin(ModelAndView mav) {
+		mav.setViewName("admin/adminSignup");
 		return mav; 
 };
 
